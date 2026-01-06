@@ -21,7 +21,7 @@ app.use(helmet());
 const allowedOrigins = [
     process.env.CLIENT_URL,
     'http://localhost:5173',
-    'https://flow-delta-liard.vercel.app' // Adding this specifically based on your screenshot
+    'https://flow-rc2dkxzi6-swapnils-projects-290698d2.vercel.app/register' // Adding this specifically based on your screenshot
 ];
 
 app.use(cors({
