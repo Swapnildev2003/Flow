@@ -21,7 +21,7 @@ app.use(helmet());
 const allowedOrigins = [
     process.env.CLIENT_URL,
     'http://localhost:5173',
-    'https://flow-rc2dkxzi6-swapnils-projects-290698d2.vercel.app'
+    'https://flow-delta-liard.vercel.app'
 ].map(url => url?.replace(/\/$/, "")); // Remove trailing slashes if any
 
 app.use(cors({
