@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+    background-color: #030712;
+    color: #f3f4f6;
+    /* gray-100 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    background-image:
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #374151;
+}
+
+/* Glassmorphism */
+.glass {
+    background-color: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    /* 24px */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Typography */
+.font-display {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Inputs */
+.input-modern {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 0.75rem 2rem;
+    outline: none;
+    transition: all 0.3s;
+    color: #f3f4f6;
+}
+
+.input-modern:focus {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* Buttons */
+.btn-modern {
+    padding: 0.75rem 1.5rem;
+    background-color: white;
+    color: #030712;
+    border-radius: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.05);
+}
+
+.btn-modern:hover {
+    background-color: #e5e7eb;
+    transform: scale(1.02);
+}
+
+.btn-modern:active {
+    transform: scale(0.98);
+}
+
+.btn-modern-ghost {
+    padding: 0.75rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-modern-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+}
+
+/* Glow Effects */
+.glow-blue {
+    box-shadow: 0 0 40px -10px rgba(59, 130, 246, 0.3);
+}
+
+.glow-purple {
+    box-shadow: 0 0 40px -10px rgba(168, 85, 247, 0.3);
+}
+
+@layer utilities {
+    .left-4 {
+        left: calc(var(--spacing) * 2);
+    }
+
+    .selection-blue {
+        &::selection {
+            background-color: rgba(59, 130, 246, 0.3);
+            color: #bfdbfe;
+        }
+    }
+}
