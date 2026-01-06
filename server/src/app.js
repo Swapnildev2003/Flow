@@ -21,20 +21,23 @@ app.use(helmet());
 const allowedOrigins = [
     process.env.CLIENT_URL,
     'http://localhost:5173',
-    'https://flow-rc2dkxzi6-swapnils-projects-290698d2.vercel.app/login' // Adding this specifically based on your screenshot
-];
-
+    'https://flow-rc2dkxzi6-swapnils-projects-290698d2.vercel.app'
+].map(url => url?.replace(/\/$/, "")); // Remove trailing slashes if any
 
 app.use(cors({
     origin: function (origin, callback) {
-        // allow requests with no origin (like mobile apps or curl requests)
+        // Allow requests with no origin (like mobile apps or curl requests)
         if (!origin) return callback(null, true);
-        if (allowedOrigins.indexOf(origin) === -1) {
-            var msg = 'The CORS policy for this site does not ' +
-                'allow access from the specified Origin.';
-            return callback(new Error(msg), false);
+
+        // Normalize origin by removing trailing slash (though browsers usually don't send one)
+        const normalizedOrigin = origin.replace(/\/$/, "");
+
+        if (allowedOrigins.includes(normalizedOrigin)) {
+            return callback(null, true);
+        } else {
+            console.log('CORS blocked for origin:', origin);
+            return callback(null, false); // Block by returning false, don't throw an Error
         }
-        return callback(null, true);
     },
     credentials: true
 }));
